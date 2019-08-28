@@ -36,6 +36,12 @@ $('document').ready(() => {
             }
         });
 
+        // gets avg 5yr expenditure and exp per student
+        exp_sum_data.forEach(d => {
+            d.AVG_TOTAL_ACTUAL_5YR = d.TOTAL_ACTUAL/5;
+            d.EXPEN_PER_STU = Math.round((d.TOTAL_ACTUAL/5) / d.AVG_SIZE);
+        });
+
         console.log(exp_sum_data);
 
         const title = 'Capital Funding: Expenditures vs. SES Index';
@@ -54,7 +60,7 @@ $('document').ready(() => {
 
         // Add a scale for bubble size
         const rScale = d3.scaleLinear()
-            .domain(d3.extent(exp_sum_data, d => { return d.TOTAL_ACTUAL }))
+            .domain(d3.extent(exp_sum_data, d => { return d.EXPEN_PER_STU;}))
             .range([5, 60]);
 
         const xAxis = d3.axisBottom(xScale)
@@ -111,7 +117,7 @@ $('document').ready(() => {
                 return yScale(d.SES_INDEX);
             }
             ))
-            .force('collision', d3.forceCollide().radius(d => { return rScale(d.TOTAL_ACTUAL) }))
+            .force('collision', d3.forceCollide().radius(d => { return rScale(d.EXPEN_PER_STU);}))
             .on('tick', ticked);
 
         function ticked() {
@@ -122,8 +128,8 @@ $('document').ready(() => {
                 .append('circle')
                 .attr('data-ses-index', d => { return d.SES_INDEX; })
                 .attr('data-mincode', d => { return d.MINCODE; })
-                .attr('data-facility', d => { return d.FACILITY; })
-                .attr('r', d => { return rScale(d.TOTAL_ACTUAL) })
+                .attr('data-school-name', d => { return d.SCHOOL_NAME; })
+                .attr('r', d => { return rScale(d.EXPEN_PER_STU);})
                 .style('fill', d => {
                     if (d.SES_INDEX < 0) {
                         return colorScale[0];
@@ -152,15 +158,17 @@ $('document').ready(() => {
     d3.queue()
         .defer(d3.csv, './raw_data/capital_data_with_mincode.csv')
         .defer(d3.csv, './raw_data/school_ses.csv')
-        .await((error, cap_data, ses_data) => {
+        .defer(d3.csv, './raw_data/school_avg_size_5yr.csv')
+        .await((error, cap_data, ses_data, size_data) => {
             if (error) {
                 console.error('Something went wrong: ' + error);
             }
 
-            let combined_data = cap_data.map((cap_d, i) => {
+            let combined = cap_data.map((cap_d, i) => {
                 ses_data.forEach((ses_d, i) => {
                     if (cap_d.MINCODE == ses_d.MINCODE && cap_d.YEAR_COMPLETED == ses_d.SCHOOL_YEAR) {
                         console.log('match!');
+                        cap_d.SCHOOL_NAME = ses_d.SCHOOL_NAME;
                         cap_d.MINCODE = +cap_d.MINCODE;
                         cap_d.SCHOOL_LATITUDE = +cap_d.SCHOOL_LATITUDE;
                         cap_d.SCHOOL_LONGITUDE = +cap_d.SCHOOL_LONGITUDE;
@@ -172,6 +180,14 @@ $('document').ready(() => {
                     }
                 });
                 return cap_d;
+            });
+
+            let combined_data = combined.map ((c_d,i) => {
+                size_data.forEach((size_d, i) => {
+                    if(c_d.MINCODE == size_d.MINCODE)
+                    c_d.AVG_SIZE = size_d.AVG_SIZE_5YR;
+                });
+                return c_d;
             });
 
             console.log(combined_data);
