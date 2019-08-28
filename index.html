@@ -1,0 +1,1239 @@
+<div class="inline-content html-fragment full">
+    <meta charset="UTF-8">
+    <title>School Funding bubble</title>
+    <style>
+        /*.Main *, .Main *::before, .Main *::after{box-sizing: content-box !important;}*/
+        .mobile-fish {
+            display: none !important;
+        }
+
+        /* main */
+        .fdn {
+            opacity: 0;
+        }
+
+        .bubblesFullContainer {
+            margin-bottom: 170px;
+            margin-left: -78px;
+            width: 768px;
+        }
+
+        .bubblesContainer {
+            margin-top: 80px;
+            width: 748px;
+            margin: 0 auto;
+        }
+
+        .bubblesLegend {
+            width: 720px;
+            margin: 0 auto;
+            font-weight: 700;
+            font-family: ABCSans;
+            line-height: 1.5;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .legend-spacing {
+            width: 110px;
+            display: inline-block;
+        }
+
+        .schoolFundingBubblesImg {}
+
+        .svgsection {
+            width: 700px;
+            height: 10520px;
+            z-index: -1;
+        }
+
+        .bubblesImgContainer {
+            width: 748px;
+            margin: 0 auto;
+            position: relative;
+            top: 76px;
+        }
+
+        .svgbgcontainer {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .svgbgcontainer svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0px auto;
+            display: block;
+            overflow: visible;
+        }
+
+        .svgpaths-container {
+            z-index: -5;
+        }
+
+        .svgpaths {
+            stroke: #ccc;
+            fill: none;
+            stroke-width: 1;
+        }
+
+        /*ticks*/
+        .axis-line {
+            stroke-width: 1;
+            stroke: #aaa;
+            stroke-dasharray: 7;
+        }
+
+        .axis-tick {
+            stroke-width: 1;
+            stroke: #d1d1d1;
+        }
+
+        .ticktext {
+            font-family: ABCSans;
+            font-weight: 700;
+            fill: #ccc;
+            letter-spacing: 2.5px;
+            font-size: 12px;
+            margin-top: -10px;
+        }
+
+        .oneperc {
+            stroke-dasharray: 3 5;
+            stroke: #aaa;
+        }
+
+        /*story bits*/
+        .bubbleStoryText {
+            display: block;
+            position: absolute;
+            font-family: ABCSerif;
+            font-size: 17px;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #333;
+            padding: 13px;
+            background-color: rgba(249, 249, 249, 0.90);
+            border-radius: 3px;
+            /* left: -85px; */
+            box-shadow: 0 0 20px 30px rgba(249, 249, 249, 0.95);
+        }
+
+        .story1 {
+            width: 431px;
+            top: 2650px;
+        }
+
+        .story2 {
+            width: 409px;
+            top: 7003px;
+        }
+
+        .story0 {
+            top: 1700px !important;
+        }
+
+        /*annotations*/
+        .annos {
+            margin-left: 160px;
+            display: block;
+        }
+
+        .bubble-anno {
+            display: block;
+            margin-left: 198px;
+            position: absolute;
+            font-family: ABCSans;
+            font-size: 13px;
+            line-height: 1.2;
+            font-weight: 400;
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #aaa;
+            background-color: rgba(249, 249, 249, 0.8);
+            color: #555;
+            z-index: 5;
+        }
+
+        .schoolheader {
+            display: inline-block;
+            margin-bottom: 3px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .state-bold {
+            font-weight: 900;
+        }
+
+        .schoolIncome {
+            display: inline-block;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 400;
+            color: #222;
+        }
+
+        .anno-inset-img {
+            width: 100%;
+            margin: 9px 0px 0px 0px;
+        }
+
+        .indie {
+            color: #06AF93;
+        }
+
+        .catholic {
+            color: #CF7172;
+        }
+
+        .govt {
+            color: #5890FD;
+        }
+
+        .jointwa {
+            background-image: linear-gradient(45deg, #e5eeff 4.55%, #f9f9f9 4.55%, #f9f9f9 50%, #e5eeff 50%, #e5eeff 54.55%, #f9f9f9 54.55%, #f9f9f9 100%);
+            background-size: 15.56px 15.56px;
+        }
+
+        /*schools*/
+        .wesley {
+            width: 243px;
+            top: 14px;
+            left: 240px;
+        }
+
+        .haileybury {
+            width: 243px;
+            top: 585px;
+            left: -130px;
+        }
+
+        .caulfield {
+            width: 223px;
+            top: 905px;
+            left: 240px;
+        }
+
+        .knox {
+            width: 263px;
+            top: 2035px;
+            left: 240px;
+        }
+
+        .melbgrammar {
+            width: 263px;
+            top: 3360px;
+            left: 240px;
+        }
+
+        .barker {
+            width: 253px;
+            top: 3750px;
+            left: 240px;
+        }
+
+        .plc {
+            width: 243px;
+            top: 3630px;
+            left: -160px;
+        }
+
+        .scotch {
+            width: 243px;
+            top: 4540px;
+            left: -180px;
+        }
+
+        .shore {
+            width: 243px;
+            top: 4880px;
+            left: 270px;
+        }
+
+        .kevins {
+            width: 213px;
+            top: 5570px;
+            left: -160px;
+        }
+
+        .abbot {
+            width: 213px;
+            top: 5650px;
+            left: 280px;
+        }
+
+        .hale {
+            width: 213px;
+            top: 5900px;
+            left: 280px;
+        }
+
+        .joseph {
+            width: 253px;
+            top: 6230px;
+            left: -170px;
+        }
+
+        .camber {
+            width: 243px;
+            top: 6330px;
+            left: 280px;
+        }
+
+        .allhallows {
+            width: 243px;
+            top: 6650px;
+            left: -170px;
+        }
+
+        .somer {
+            width: 232px;
+            top: 6630px;
+            left: 280px;
+        }
+
+        .catherines {
+            width: 213px;
+            top: 7000px;
+            left: 280px;
+        }
+
+        .aloysius {
+            width: 253px;
+            top: 7260px;
+            left: -180px;
+        }
+
+        .bris {
+            width: 223px;
+            top: 7300px;
+            left: 290px;
+        }
+
+        .willetton {
+            width: 223px;
+            top: 7560px;
+            left: -180px;
+        }
+
+        .kirwan {
+            width: 223px;
+            top: 7840px;
+            left: 280px;
+        }
+
+        .lourdes {
+            width: 223px;
+            top: 8160px;
+            left: -180px;
+        }
+
+        .norwood {
+            width: 223px;
+            top: 8210px;
+            left: 290px;
+        }
+
+        .trinity {
+            width: 223px;
+            top: 8200px;
+            left: 290px;
+        }
+
+        .apple {
+            width: 248px;
+            top: 8512px;
+            left: 290px;
+        }
+
+        .scholastica {
+            width: 243px;
+            top: 8550px;
+            left: -180px;
+        }
+
+        .karratha {
+            width: 233px;
+            top: 8760px;
+            left: -180px;
+        }
+
+        .arthurp {
+            width: 233px;
+            top: 8560px;
+            left: 290px;
+        }
+
+        .sandr {
+            width: 233px;
+            top: 8860px;
+            left: -180px;
+        }
+
+        .goodsh {
+            width: 223px;
+            top: 8890px;
+            left: 300px;
+        }
+
+        .govst {
+            width: 223px;
+            top: 9010px;
+            left: -180px;
+        }
+
+        .socoba {
+            width: 228px;
+            top: 9220px;
+            left: 310px;
+        }
+
+        .byford {
+            width: 223px;
+            top: 9130px;
+            left: -180px;
+        }
+
+        .marist {
+            width: 233px;
+            top: 9090px;
+            left: -180px;
+        }
+
+        .joebanks {
+            width: 183px;
+            top: 9493px;
+            left: -180px;
+        }
+
+        .stmartins {
+            width: 223px;
+            top: 9540px;
+            left: 320px;
+        }
+
+        .cammeray {
+            width: 233px;
+            top: 9500px;
+            left: -190px;
+        }
+
+        .parrapub {
+            width: 213px;
+            top: 9690px;
+            left: 330px;
+        }
+
+        .starsea {
+            width: 233px;
+            top: 9700px;
+            left: -190px;
+        }
+
+        .wales {
+            width: 233px;
+            top: 9700px;
+            left: -190px;
+        }
+
+        .kingswood {
+            width: 193px;
+            top: 9720px;
+            left: 350px;
+        }
+
+        .parraeast {
+            width: 203px;
+            top: 9990px;
+            left: 340px;
+        }
+
+        .sheidow {
+            width: 233px;
+            top: 10210px;
+            left: -180px;
+        }
+
+        @media only screen and (max-width: 450px) {
+
+            .Main *,
+            .Main *::before,
+            .Main *::after {
+                box-sizing: border-box !important;
+            }
+
+            .mobile-fish {
+                display: block !important;
+            }
+
+            .desktop-fish {
+                display: none !important;
+            }
+
+            .fdn {
+                opacity: 0;
+            }
+
+            .bubblesFullContainer {
+                width: 350px;
+                margin: 0 auto 170px auto;
+            }
+
+            .bubblesContainer {
+                margin-top: 80px;
+                width: 350px;
+                margin: 0 auto;
+                display: block;
+            }
+
+            .bubblesLegend {
+                width: 300px;
+            }
+
+            .legend-spacing {
+                width: 0px;
+                display: none;
+            }
+
+            .schoolFundingBubblesImg {}
+
+            .bubblesImgContainer {
+                width: 350px;
+                margin: 0 auto;
+                position: relative;
+                top: 80px;
+            }
+
+            .svgbgcontainer {
+                position: relative;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .svgbgcontainer svg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin: 0px auto;
+                display: block;
+                overflow: visible;
+            }
+
+            .svgpaths-container {
+                z-index: -5;
+            }
+
+            .svgpaths {
+                stroke: #ccc;
+                fill: none;
+                stroke-width: 1;
+            }
+
+            /*annotations*/
+            .annos {
+                margin-left: 0px;
+                display: block;
+            }
+
+            .bubble-anno {
+                display: block;
+                margin-left: 0px;
+                position: absolute;
+                font-family: ABCSans;
+                font-size: 12px;
+                line-height: 1.2;
+                font-weight: 400;
+                padding: 5px;
+                border-radius: 3px;
+                border: 0.5px solid #ddd;
+                background-color: rgba(249, 249, 249, 0.85);
+                color: #333;
+                z-index: 5;
+            }
+
+            .bubbleStoryText {
+                display: block;
+                position: absolute;
+                font-family: ABCSerif;
+                font-size: 16px;
+                line-height: 1.5;
+                font-weight: 400;
+                color: #333;
+                padding: 13px;
+                background-color: rgba(249, 249, 249, 0.90);
+                border-radius: 3px;
+                /* left: -85px; */
+                box-shadow: 0 0 10px 20px rgba(249, 249, 249, 0.9);
+            }
+
+            .story1 {
+                width: 330px;
+                top: 2600px;
+            }
+
+            .story2 {
+                width: 330px;
+                top: 6993px;
+            }
+
+            /*schools*/
+            .wesley {
+                width: 145px;
+                top: 67px;
+                left: 195px;
+            }
+
+            .haileybury {
+                width: 130px;
+                top: 565px;
+                left: -5px;
+            }
+
+            .caulfield {
+                width: 130px;
+                top: 905px;
+                left: 210px;
+            }
+
+            .knox {
+                width: 130px;
+                top: 2035px;
+                left: 210px;
+            }
+
+            .melbgrammar {
+                width: 130px;
+                top: 3250px;
+                left: 210px;
+            }
+
+            .barker {
+                width: 130px;
+                top: 3700px;
+                left: 210px;
+            }
+
+            .plc {
+                width: 130px;
+                top: 3550px;
+                left: -5px;
+            }
+
+            .scotch {
+                width: 130px;
+                top: 4520px;
+                left: -5px;
+            }
+
+            .shore {
+                width: 130px;
+                top: 4880px;
+                left: 210px;
+            }
+
+            .kevins {
+                width: 130px;
+                top: 5540px;
+                left: -5px;
+            }
+
+            .abbot {
+                width: 130px;
+                top: 5600px;
+                left: 220px;
+            }
+
+            .hale {
+                width: 130px;
+                top: 5880px;
+                left: 220px;
+            }
+
+            .joseph {
+                width: 120px;
+                top: 6160px;
+                left: -7px;
+            }
+
+            .camber {
+                width: 130px;
+                top: 6310px;
+                left: 220px;
+            }
+
+            .allhallows {
+                width: 130px;
+                top: 6645px;
+                left: -7px;
+            }
+
+            .somer {
+                width: 140px;
+                top: 6670px;
+                left: 210px;
+            }
+
+            .aloysius {
+                width: 120px;
+                top: 7230px;
+                left: -8px;
+            }
+
+            .bris {
+                width: 120px;
+                top: 7300px;
+                left: 230px;
+            }
+
+            .willetton {
+                width: 120px;
+                top: 7565px;
+                left: -8px;
+            }
+
+            .kirwan {
+                width: 120px;
+                top: 7840px;
+                left: 225px;
+            }
+
+            .lourdes {
+                width: 120px;
+                top: 8160px;
+                left: -6px;
+            }
+
+            .norwood {
+                width: 120px;
+                top: 8210px;
+                left: 225px;
+            }
+
+            .trinity {
+                width: 120px;
+                top: 8200px;
+                left: 230px;
+            }
+
+            .apple {
+                width: 120px;
+                top: 8512px;
+                left: 225px;
+            }
+
+            .scholastica {
+                width: 120px;
+                top: 8550px;
+                left: -6px;
+            }
+
+            .karratha {
+                width: 120px;
+                top: 8760px;
+                left: -6px;
+            }
+
+            .arthurp {
+                width: 120px;
+                top: 8591px;
+                left: 230px;
+            }
+
+            .sandr {
+                width: 120px;
+                top: 8860px;
+                left: -6px;
+            }
+
+            .goodsh {
+                width: 120px;
+                top: 8890px;
+                left: 225px;
+            }
+
+            .govst {
+                width: 120px;
+                top: 9010px;
+                left: -6px;
+            }
+
+            .socoba {
+                width: 120px;
+                top: 9170px;
+                left: 230px;
+            }
+
+            .byford {
+                width: 120px;
+                top: 9130px;
+                left: -6px;
+            }
+
+            .marist {
+                width: 120px;
+                top: 9090px;
+                left: -6px;
+            }
+
+            .joebanks {
+                width: 120px;
+                top: 9493px;
+                left: -6px;
+            }
+
+            .stmartins {
+                width: 120px;
+                top: 9540px;
+                left: 230px;
+            }
+
+            .cammeray {
+                width: 120px;
+                top: 9500px;
+                left: -6px;
+            }
+
+            .parrapub {
+                width: 120px;
+                top: 9690px;
+                left: 225px;
+            }
+
+            .starsea {
+                width: 120px;
+                top: 9700px;
+                left: -6px;
+            }
+
+            .wales {
+                width: 120px;
+                top: 9700px;
+                left: -6px;
+            }
+
+            .parraeast {
+                width: 120px;
+                top: 9940px;
+                left: 230px;
+            }
+
+            .sheidow {
+                width: 120px;
+                top: 10170px;
+                left: -6px;
+            }
+        }
+
+        @media only screen and (max-width: 324px) {
+            .bubblesFullContainer {
+                width: 320px;
+                margin: -410px 0px -354px -26px;
+                transform: scale(0.89);
+            }
+        }
+    </style>
+    <div class="bubblesFullContainer">
+        <div class="bubblesLegend"> Bigger circle=Bigger capital expenditure <div style="margin:10px auto 0 auto"> <svg
+                    width="317px" height="14px" viewBox="0 0 317 14" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Scroller" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Artboard-Copy" transform="translate(-132.000000, -336.000000)">
+                            <g id="Group-3" transform="translate(132.000000, 333.000000)"> <text id="Catholic"
+                                    font-family="ABCSansRegular, ABCSans" font-size="14" font-weight="normal"
+                                    fill="#111111">
+                                    <tspan x="18" y="14">Catholic</tspan>
+                                </text>
+                                <circle id="Oval" fill="#FCA0A1" cx="6" cy="9" r="6"></circle>
+                            </g>
+                            <g id="Group-4" transform="translate(225.000000, 333.000000)"> <text id="Independent"
+                                    font-family="ABCSansRegular, ABCSans" font-size="14" font-weight="normal"
+                                    fill="#111111">
+                                    <tspan x="18" y="14">Independent</tspan>
+                                </text>
+                                <circle id="Oval-Copy" fill="#67E1CE" cx="6" cy="9" r="6"></circle>
+                            </g>
+                            <g id="Group-5" transform="translate(347.000000, 333.000000)"> <text id="Government"
+                                    font-family="ABCSansRegular, ABCSans" font-size="14" font-weight="normal"
+                                    fill="#111111">
+                                    <tspan x="18" y="14">Government</tspan>
+                                </text>
+                                <circle id="Oval-Copy-2" fill="#4A6EFF" cx="6" cy="9" r="6"></circle>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <div class="legend-spacing"></div><svg style="margin-top:10px;" width="225px" height="72px"
+                    viewBox="0 0 225 72" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                        <circle id="path-1" cx="25" cy="18" r="18"></circle>
+                        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0"
+                            width="36" height="36" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <circle id="path-3" cx="22.75" cy="2.75" r="2.75"></circle>
+                        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0"
+                            width="5.5" height="5.5" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <circle id="path-5" cx="25.5" cy="25.5" r="25.5"></circle>
+                        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0"
+                            width="51" height="51" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <circle id="path-7" cx="25.5" cy="8.5" r="8.5"></circle>
+                        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0"
+                            width="17" height="17" fill="white">
+                            <use xlink:href="#path-7"></use>
+                        </mask>
+                    </defs>
+                    <g id="Scroller" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Artboard-Copy-14" transform="translate(-156.000000, -168.000000)">
+                            <g id="Group-6" transform="translate(153.000000, 168.000000)">
+                                <g id="Group-4" transform="translate(118.000000, 15.000000)">
+                                    <use id="Oval" stroke="#000000" mask="url(#mask-2)" stroke-width="2"
+                                        stroke-dasharray="2,2" xlink:href="#path-1"></use> <text id="$50m"
+                                        font-family="ABCSansRegular, ABCSans" font-size="12" font-weight="normal"
+                                        letter-spacing="2.3" fill="#111">
+                                        <tspan x="4.59" y="56">$50m</tspan>
+                                    </text>
+                                </g>
+                                <g id="Group-2" transform="translate(0.000000, 46.000000)">
+                                    <use id="Oval" stroke="#000000" mask="url(#mask-4)" stroke-width="2"
+                                        stroke-dasharray="2,2" xlink:href="#path-3"></use> <text id="$0.5m"
+                                        font-family="ABCSansRegular, ABCSans" font-size="12" font-weight="normal"
+                                        letter-spacing="2.3" fill="#111">
+                                        <tspan x="2.834" y="25">$0.5m</tspan>
+                                    </text>
+                                </g>
+                                <g id="Group-5" transform="translate(177.000000, 0.000000)">
+                                    <use id="Oval" stroke="#000000" mask="url(#mask-6)" stroke-width="2"
+                                        stroke-dasharray="2,2" xlink:href="#path-5"></use> <text id="$100m"
+                                        font-family="ABCSansRegular, ABCSans" font-size="12" font-weight="normal"
+                                        letter-spacing="2.3" fill="#111">
+                                        <tspan x="0.878" y="71">$100m</tspan>
+                                    </text>
+                                </g>
+                                <g id="Group-3" transform="translate(59.000000, 34.000000)"> <text id="$8m"
+                                        font-family="ABCSansRegular, ABCSans" font-size="12" font-weight="normal"
+                                        letter-spacing="2.3" fill="#111">
+                                        <tspan x="9.412" y="36.3105469">$8m</tspan>
+                                    </text>
+                                    <use id="Oval" stroke="#000000" mask="url(#mask-8)" stroke-width="2"
+                                        stroke-dasharray="2,2" xlink:href="#path-7"></use>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="svgbgcontainer desktop-fish"> <svg width="700" height="10520" style="z-index: -1;">
+                <g style="z-index: -2;">
+                    <line class="axis-line" x1="350" x2="350" y1="0" y2="10520"></line>
+                    <line stroke="#111" stroke-width="1" x1="0" x2="700" y1="0" y2="0"></line>
+                    <line class="axis-tick oneperc" x1="0" x2="700" y1="7261" y2="7261"></line> <text class="ticktext"
+                        style="fill:#aaa; text-transform: uppercase;" y="7251">The richest 1%</text> <text
+                        style="fill: #999" class="ticktext" y="73">INCOME</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="83" y2="83"></line> <text class="ticktext"
+                        y="103">$105,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="579" y2="579"></line> <text class="ticktext"
+                        y="599">$100,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="1076" y2="1076"></line> <text class="ticktext"
+                        y="1096">$95,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="1572" y2="1572"></line> <text class="ticktext"
+                        y="1592">$90,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="2068" y2="2068"></line> <text class="ticktext"
+                        y="2088">$85,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="2564" y2="2564"></line> <text class="ticktext"
+                        y="2584">$80,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="3061" y2="3061"></line> <text class="ticktext"
+                        y="3081">$75,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="3557" y2="3557"></line> <text class="ticktext"
+                        y="3577">$70,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="4053" y2="4053"></line> <text class="ticktext"
+                        y="4073">$65,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="4550" y2="4550"></line> <text class="ticktext"
+                        y="4570">$60,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="5046" y2="5046"></line> <text class="ticktext"
+                        y="5066">$55,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="5542" y2="5542"></line> <text class="ticktext"
+                        y="5562">$50,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="6038" y2="6038"></line> <text class="ticktext"
+                        y="6058">$45,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="6535" y2="6535"></line> <text class="ticktext"
+                        y="6555">$40,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="7031" y2="7031"></line> <text class="ticktext"
+                        y="7051">$35,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="7527" y2="7527"></line> <text class="ticktext"
+                        y="7547">$30,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="8024" y2="8024"></line> <text class="ticktext"
+                        y="8044">$25,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="8520" y2="8520"></line> <text class="ticktext"
+                        y="8540">$20,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="9016" y2="9016"></line> <text class="ticktext"
+                        y="9036">$15,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="9512" y2="9512"></line> <text class="ticktext"
+                        y="9532">$10,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="10009" y2="10009"></line> <text class="ticktext"
+                        y="10029">$5,000,000</text>
+                    <line class="axis-tick" x1="0" x2="700" y1="10505" y2="10505"></line> <text class="ticktext"
+                        y="10525">$0</text>
+                </g>
+            </svg> </div>
+        <div class="svgbgcontainer mobile-fish"> <svg width="350" height="10520">
+                <g style="z-index: -2;">
+                    <line class="axis-line" x1="175" x2="175" y1="0" y2="10520"></line>
+                    <line stroke="#111" stroke-width="1" x1="0" x2="350" y1="0" y2="0"></line>
+                    <line class="axis-tick oneperc" x1="0" x2="350" y1="7261" y2="7261"></line> <text class="ticktext"
+                        style="fill:#aaa; text-transform: uppercase;" y="7251">The richest 1%</text> <text
+                        style="fill: #999" class="ticktext" y="73">INCOME</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="83" y2="83"></line> <text class="ticktext"
+                        y="103">$105,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="579" y2="579"></line> <text class="ticktext"
+                        y="599">$100,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="1076" y2="1076"></line> <text class="ticktext"
+                        y="1096">$95,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="1572" y2="1572"></line> <text class="ticktext"
+                        y="1592">$90,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="2068" y2="2068"></line> <text class="ticktext"
+                        y="2088">$85,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="2564" y2="2564"></line> <text class="ticktext"
+                        y="2584">$80,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="3061" y2="3061"></line> <text class="ticktext"
+                        y="3081">$75,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="3557" y2="3557"></line> <text class="ticktext"
+                        y="3577">$70,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="4053" y2="4053"></line> <text class="ticktext"
+                        y="4073">$65,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="4550" y2="4550"></line> <text class="ticktext"
+                        y="4570">$60,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="5046" y2="5046"></line> <text class="ticktext"
+                        y="5066">$55,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="5542" y2="5542"></line> <text class="ticktext"
+                        y="5562">$50,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="6038" y2="6038"></line> <text class="ticktext"
+                        y="6058">$45,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="6535" y2="6535"></line> <text class="ticktext"
+                        y="6555">$40,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="7031" y2="7031"></line> <text class="ticktext"
+                        y="7051">$35,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="7527" y2="7527"></line> <text class="ticktext"
+                        y="7547">$30,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="8024" y2="8024"></line> <text class="ticktext"
+                        y="8044">$25,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="8520" y2="8520"></line> <text class="ticktext"
+                        y="8540">$20,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="9016" y2="9016"></line> <text class="ticktext"
+                        y="9036">$15,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="9512" y2="9512"></line> <text class="ticktext"
+                        y="9532">$10,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="10009" y2="10009"></line> <text class="ticktext"
+                        y="10029">$5,000,000</text>
+                    <line class="axis-tick" x1="0" x2="350" y1="10505" y2="10505"></line> <text class="ticktext"
+                        y="10525">$0</text>
+                </g>
+            </svg> </div>
+        <div class="bubblesContainer">
+            <div class="bubblesImgContainer">
+                <div class="annos">
+                    <div class="bubble-anno wesley"> <span class="schoolheader indie">Wesley College, <span
+                                class="state-bold">VIC</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $104.6m<br><strong>Cap. exp.</strong> $96.7m<br><strong>Cap. exp.
+                                govt.</strong> $30,747<br></span><br>Extensive redevelopment includes a $21m music
+                        school, $16m boarding facility and $2.3m visual arts and design precinct. Currently fundraising
+                        for $2.5m refurbishment of Wesley Boathouse. <img class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407312/data/wesley-college-data.gif"> </div>
+                    <div class="bubble-anno fdn haileybury" style="opacity: 1;"> <span
+                            class="schoolheader indie">Haileybury College, <span
+                                class="state-bold">VIC</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $98.1m<br><strong>Cap. exp.</strong> $103.5m<br><strong>Cap. exp.
+                                govt.</strong> $455,466<br></span><br>New campus Haileybury City features an indoor
+                        sports facility, a dedicated floor for music, art and drama and two terrace gardens. Classrooms
+                        with floor to ceiling windows offer 180-degree views of the city. <img class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407366/data/haileybury-college-data.gif"> </div>
+                    <div class="bubble-anno fdn caulfield" style="opacity: 1;"> <span
+                            class="schoolheader indie">Caulfield Grammar, <span
+                                class="state-bold">VIC</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $95.1m<br><strong>Cap. exp.</strong> $101.8m<br><strong>Cap. exp.
+                                govt.</strong> $577,709<br></span><br>Fundraising for a new aquatic centre, featuring an
+                        Olympic-sized pool with moveable floors and walls, and wellbeing spaces for dance, pilates,
+                        meditation and yoga. <img class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407248/data/caulfield-grammar-school-data.gif"> </div>
+                    <div class="bubbleStoryText story1 story0"> Australia's four richest schools spent more on new
+                        facilities and renovations than the poorest 1,800 schools combined. </div>
+                    <div class="bubble-anno fdn knox" style="opacity: 1;"> <span class="schoolheader indie">Knox
+                            Grammar, <span class="state-bold">NSW</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $83.8m<br><strong>Cap. exp.</strong> $100.1m<br><strong>Cap. exp.
+                                govt.</strong> $458,151<br></span><br>$47m performing arts centre includes 750-seat
+                        auditorium with adjustable orchestra pit and 160-seat intimate performance space. Senior academy
+                        features a cafe with on-site barista. <br><br>Enrolments grew 30% between 2013 and 2018. <img
+                            class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11408578/data/knox-grammar-school-data.gif"> </div>
+                    <div class="bubbleStoryText story1"> Wesley College, Haileybury College and Caulfield Grammar in
+                        Melbourne, together with Knox Grammar in Sydney, spent $402 million. They teach fewer than
+                        13,000 students.<br><br>The poorest 1,800 schools spent less than $370 million. They teach
+                        107,000 students. </div>
+                    <div class="bubble-anno fdn melbgrammar" style="opacity: 1;"> <span
+                            class="schoolheader indie">Melbourne Grammar School, <span
+                                class="state-bold">VIC</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $69.6m<br><strong>Cap. exp.</strong> $61m<br><strong>Cap. exp.
+                                govt.</strong> $14,101<br></span><br>$30m science and technology hub features a rooftop
+                        terrace with a weather monitoring station.<br><img class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407272/data/melbourne-grammar-school-data.jpg" alt="">
+                    </div>
+                    <div class="bubble-anno fdn plc" style="opacity: 1;"> <span class="schoolheader indie">Pymble
+                            Ladies' College, <span class="state-bold">NSW</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $67.4m<br><strong>Cap. exp.</strong> $67.7m<br><strong>Cap. exp.
+                                govt.</strong> $420,633<br></span><br>$34m Centenary Sports Precinct features 50m
+                        eight-lane pool with multiple diving platforms, fitness centre, learn-to-swim pool and remedial
+                        treatment rooms. <img class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407278/data/pymble-ladies-college-data.gif"> </div>
+                    <div class="bubble-anno fdn scotch" style="opacity: 1;"> <span class="schoolheader indie">Scotch
+                            College, <span class="state-bold">VIC</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $58m<br><strong>Cap. exp.</strong> $70.1m<br><strong>Cap. exp.
+                                govt.</strong> $14,569<br></span><br>$32m Sir Zelman Cowen Centre for Science includes a
+                        rooftop learning area, 200-seat presentation space and "experiential laboratory". <img
+                            class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407348/data/scotch-college-data.gif"> </div>
+                    <div class="bubble-anno fdn shore" style="opacity: 1;"> <span class="schoolheader indie">SHORE -
+                            Sydney Church of England Grammar School, <span class="state-bold">NSW</span></span><br><span
+                            class="schoolIncome"> <strong>Income</strong> $55.2m<br><strong>Cap. exp.</strong>
+                            $50.5m<br><strong>Cap. exp. govt.</strong> $340,895<br></span><br>$52m Shore Physical
+                        Education Centre — the largest building project in the school's history — due in 2020. Includes
+                        11 learning spaces and seminar rooms, a 50m indoor pool and a multi-purpose sports complex. <img
+                            class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407300/data/shore-school-data.gif"> </div>
+                    <div class="bubble-anno fdn kevins" style="opacity: 1;"> <span class="schoolheader catholic">St
+                            Kevin's College, <span class="state-bold">VIC</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $48.3m<br><strong>Cap. exp.</strong> $40.9m<br><strong>Cap. exp.
+                                govt.</strong> $347,173<br></span><br>The 5.5 hectare Tooronga Fields — "the largest
+                        privately-owned sporting facility in Australasia" — includes three FIFA-regulation soccer
+                        pitches, an AFL field, 12 cricket nets, 12 tennis courts and an athletics track. <img
+                            class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407264/data/st-kevins-college-data.gif"> </div>
+                    <div class="bubble-anno fdn hale" style="opacity: 1;"> <span class="schoolheader indie">Hale School,
+                            <span class="state-bold">WA</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $45.8m<br><strong>Cap. exp.</strong> $34.9m<br><strong>Cap. exp.
+                                govt.</strong> $467,740<br></span><br>Completed $16m Junior School redevelopment in 2018
+                        and aquatic centre in 2014. Existing facilities include 2 pools, 2 gymnasiums, indoor climbing
+                        wall, 18 tennis courts and 5 cricket grounds with turf wickets. <img class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407262/data/hale-school-data.gif"> </div>
+                    <div class="bubble-anno fdn camber" style="opacity: 1;"> <span class="schoolheader indie">Camberwell
+                            Grammar School, <span class="state-bold">VIC</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $39.4m<br><strong>Cap. exp.</strong> $73m<br><strong>Cap. exp.
+                                govt.</strong> $293,499<br></span><br>$45m sports and aquatic facility, 200-seat chapel
+                        and function centre completed 2016. <img class="anno-inset-img desktop-fish"
+                            src="https://www.abc.net.au/cm/lb/11407246/data/camberwell-grammar-school-data.gif"> </div>
+                    <div class="bubble-anno fdn allhallows" style="opacity: 1;"> <span class="schoolheader catholic">All
+                            Hallows' School, <span class="state-bold">QLD</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $37.0m<br><strong>Cap. exp.</strong> $55.9m<br><strong>Cap. exp.
+                                govt.</strong> $2.3m<br></span><br>Opened $7.7m, five-storey 'Mary Place' in 2015.
+                        Includes 15 classrooms, enclosed courtyard and new tennis/netball court. </div>
+                    <div class="bubble-anno fdn somer" style="opacity: 1;"> <span class="schoolheader indie">Somerville
+                            House, <span class="state-bold">QLD</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $35.5m<br><strong>Cap. exp.</strong> $52.8m<br><strong>Cap. exp.
+                                govt.</strong> $2m<br></span><br>Master Plan includes "The Annex" building, offering
+                        world-class boarding and dining, an extension of the artistic gymnastics facility, a School Art
+                        Gallery and Museum, and expansion of the auditorium from 980 to 1,500 seats.<img
+                            class="anno-inset-img desktop-fish"
+                            src="https://www.abc.net.au/cm/lb/11407306/data/somerville-house-data.gif"> </div>
+                    <div class="bubbleStoryText story2"> The richest 1% of schools spent $3 billion. The poorest 50%
+                        spent $2.6 billion combined.<br>The poorest 50% of schools teach nearly five times as many
+                        students. </div>
+                    <div class="bubble-anno fdn aloysius" style="opacity: 1;"> <span class="schoolheader indie">St
+                            Aloysius' College, <span class="state-bold">NSW</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $31.4m<br><strong>Cap. exp.</strong> $21.1m<br><strong>Cap. exp.
+                                govt.</strong> $160,300<br></span><br>Seeking approval for an $80m "revitalisation" of
+                        its three campuses, including a new learning precinct with rooftop amphitheatre and subterranean
+                        sports facility. </div>
+                    <div class="bubble-anno fdn bris" style="opacity: 1;"> <span class="schoolheader govt">Brisbane
+                            State High School, <span class="state-bold">QLD</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $31m<br><strong>Cap. exp.</strong> $47m<br><strong>Cap. exp.
+                                govt.</strong> $46.8m<br></span><br>Enrolments grew 35% between 2013 and 2018. Added 40
+                        new classrooms in 2016 as part of a $35m redevelopment to address overcrowding. By 2017,
+                        overcrowding was again an issue. <img class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407240/data/brisbane-state-high-school-data.jpg"> </div>
+                    <div class="bubble-anno fdn willetton desktop-fish" style="opacity: 1;"> <span
+                            class="schoolheader govt">Willetton Senior High School, <span
+                                class="state-bold">WA</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $28.2m<br><strong>Cap. exp.</strong> $52.3m<br><strong>Cap. exp.
+                                govt.</strong> $52.3m<br></span><br>Six public schools in Australia spent more than $50m
+                        on capital works. All were part of the WA government's plan to help public schools meet forecast
+                        enrolment growth.<br><br>Willetton's $52m redevelopment included new buildings for art, media,
+                        textiles, science and technology. The original buildings were constructed in the 1970s. </div>
+                    <div class="bubble-anno fdn lourdes" style="opacity: 1;"> <span
+                            class="schoolheader catholic">Lourdes Hill College, <span
+                                class="state-bold">QLD</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $21.6m<br><strong>Cap. exp.</strong> $32.9m<br><strong>Cap. exp.
+                                govt.</strong> $2.9m<br></span><br>$20m "Bernadette Centre" houses a sports centre,
+                        200-seat chapel, 600-seat theatre, science labs, drama workshops, music rooms, classrooms and
+                        rooftop play area overlooking Brisbane River and CBD. </div>
+                    <div class="bubble-anno fdn trinity" style="opacity: 1;"> <span
+                            class="schoolheader catholic">Trinity Catholic College, <span
+                                class="state-bold">NSW</span></span><br><span class="schoolIncome">
+                            <strong>Income</strong> $19.6m<br><strong>Cap. exp.</strong> $2.9m<br><strong>Cap. exp.
+                                govt.</strong> $352,153<br></span><br>Received $2.75m federal grant in 2019 for new
+                        facilities, including an art annex and staff office, and refurbishment of gymnasium and art
+                        studio. Enrolments fell by 3% between 2013 and 2018. <img class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407310/data/trinity-catholic-college-data.gif"> </div>
+                    <div class="bubble-anno fdn arthurp" style="opacity: 1;"> <span class="schoolheader govt">Arthur
+                            Phillip High School, Parramatta Public School <span
+                                class="state-bold">NSW</span></span><br>$325m redevelopment of Parramatta Public and
+                        Arthur Phillip High School sites is the state's largest public school infrastructure project.
+                        New high school for 2,000 students will be NSW's first high-rise public school. <img
+                            class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407276/data/parramatta-public-school-data.jpg"> </div>
+                    <div class="bubble-anno fdn socoba" style="opacity: 1;"> <span class="schoolheader indie">South
+                            Coast Baptist College, <span class="state-bold">WA</span></span><br><span
+                            class="schoolIncome"><strong>Income</strong> $11m<br><strong>Cap. exp.</strong>
+                            $7m<br><strong>Cap. exp. govt.</strong> $873,707</span><br>Enrolments grew 65% between 2013
+                        and 2018. Received $1.5m federal grant in 2018 for construction of 3 science laboratories, STEM
+                        studio, materials technology studios, planning studio and machine rooms. </div>
+                    <div class="bubble-anno fdn marist" style="opacity: 1;"> <span class="schoolheader catholic">Marist
+                            Catholic College Penshurst, <span class="state-bold">NSW</span></span><br><span
+                            class="schoolIncome"><strong>Income</strong> $10.3m<br><strong>Cap. exp.</strong>
+                            $36.4m<br><strong>Cap. exp. govt.</strong> $5.5m</span><br>Opened La Valla Learning Centre
+                        in 2016, featuring 12 classrooms, a library and tuition rooms. Other projects include a new
+                        admin building, theatrette, and music and drama spaces. Received $3.5m federal government grant
+                        in 2018. Constructing a second campus to cope with enrolments. <img class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11407270/data/marist-catholic-college-data.jpg"> </div>
+                    <div class="bubble-anno fdn stmartins" style="opacity: 1;"> <span class="schoolheader indie">St
+                            Martins Lutheran College, <span class="state-bold">SA</span></span><br><span
+                            class="schoolIncome"><strong>Income</strong> $8.3m<br><strong>Cap. exp.</strong>
+                            $4.1m<br><strong>Cap. exp. govt.</strong> $890,649</span><br>Opened two new classrooms and a
+                        new Middle School building in 2018. Received $941k federal grant in 2019 for a new two-storey
+                        building with a food and hospitality centre, art rooms and exhibition space. </div>
+                    <div class="bubble-anno fdn wales" style="opacity: 1;"> <span class="schoolheader govt">Wales Street
+                            Primary School, <span class="state-bold">VIC</span></span><br><span
+                            class="schoolIncome"><strong>Income</strong> $5.6m<br><strong>Cap. exp.</strong>
+                            $450,536<br><strong>Cap. exp. govt.</strong> $428,268</span><br>Overcrowding and
+                        infrastructure issues included leaking roofs, a school hall that accommodates only half the
+                        students, and non-compliant toilets, wiring and plumbing. Received $4.1m in the 2019-20 State
+                        Budget for an upgrade. </div>
+                    <div class="bubble-anno fdn parraeast" style="opacity: 1;"> <span
+                            class="schoolheader govt">Parramatta East Public School, <span
+                                class="state-bold">NSW</span></span><br><span
+                            class="schoolIncome"><strong>Income</strong> $4.0m<br><strong>Cap. exp.</strong>
+                            $272,298<br><strong>Cap. exp. govt.</strong> $214,034</span><br>50% enrolment growth since
+                        2013. Has 10 toilets for more than 500 students and 4 times as many demountables as permanent
+                        classrooms. No upgrades planned. <img class="anno-inset-img"
+                            src="https://www.abc.net.au/cm/lb/11417882/data/parramatta-east-public-school-data.jpg">
+                    </div>
+                    <div class="bubble-anno fdn sheidow" style="opacity: 1;"> <span class="schoolheader govt">Sheidow
+                            Park Primary School, <span class="state-bold">SA</span></span><br><span
+                            class="schoolIncome"><strong>Income</strong> $2.8m<br><strong>Cap. exp.</strong>
+                            $25,005<br><strong>Cap. exp. govt.</strong> $0</span><br>No new buildings or renovations
+                        since the Rudd government's post-GFC school building program. </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.abc.net.au/res/libraries/jquery/jquery-1.11.3.min.js"></script>
+    <script>$(document).ready(function () { $(window).scroll(function () { $('.fdn').each(function (i) { var bottom_of_element = $(this).offset().top - 60 + $(this).outerHeight(); var bottom_of_window = $(window).scrollTop() + $(window).height(); if (bottom_of_window > bottom_of_element) { $(this).animate({ 'opacity': '1' }, 1000); } }); }); });</script>
+</div>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         .bubble{
+            stroke-width: 1px;
+            stroke: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Create a div where the graph will take place -->
+    <div id="my_dataviz"></div>
+
+
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script>
+        // set the dimensions and margins of the graph
+        var margin = { top: 10, right: 20, bottom: 30, left: 50 },
+            width = 500 - margin.left - margin.right,
+            height = 420 - margin.top - margin.bottom;
+
+        // append the svg object to the body of the page
+        var svg = d3.select("#my_dataviz")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform",
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        var bubble_group = svg.append('g')
+                            .attr('class', '.bubble_svg');
+
+        var colorScale = ['orange', 'lightblue'];
+
+        //Read the data
+        d3.csv("school_cap.csv", function (data) {
+
+            var nodes = data.map(function (d, i) {
+                return {
+                    Income: +d.Income,
+                    Cap_Expenditures: +d.Cap_Expenditures
+                }
+            });
+
+            console.log(nodes);
+            var x = d3.scaleLinear()
+                .domain([0, 100])
+                .range([0, width]);
+
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            var y = d3.scaleLinear()
+                .domain([0, 70000])
+                .range([height, 0]);
+
+            svg.append("g")
+                .call(d3.axisLeft(y));
+
+            // Add a scale for bubble size
+            var r_scale = d3.scaleLinear()
+                .domain([0, 50000])
+                .range([1, 40]);
+
+            var simulation = d3.forceSimulation(nodes)
+                .force('charge', d3.forceManyBody().strength(5))
+                .force('x', d3.forceX().x(function (d) {
+                    return x(50);
+                }))
+                .force('y', d3.forceY().y(function (d) {
+                    return y(d.Income) - 40;
+                }))
+                .force('collision', d3.forceCollide().radius(function (d) {
+                    return r_scale(d.Income);
+                }))
+                .on('tick', ticked);
+
+            function ticked() {
+                var bubble = bubble_group.selectAll('circle')
+                    .data(nodes);
+
+                bubble.enter()
+                    .append('circle')
+                    .attr('r', function (d) {
+                        return r_scale(d.Income);
+                    })
+                    .style('fill', function (d) {
+                        if (d.Income > 20000) {
+                            return colorScale[0];
+                        } else {
+                            return colorScale[1];
+                        }
+                    })
+                    .merge(bubble)
+                    .attr('cx', function (d) {
+                        return d.x;
+                    })
+                    .attr('cy', function (d) {
+                        return d.y;
+                    })
+                    .attr('class','bubble')
+
+                bubble.exit().remove();
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>
