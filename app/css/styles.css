@@ -7062,10 +7062,10 @@ a.text-dark:hover, a.text-dark:focus {
 
 body {
   font-family: Myriad-Pro, Calibri, Arial, 'sans serif';
+  overflow-x: hidden;
   /*********student success**********/
   /********student success*********/
-  /* shared */
-  /* bubble chart */ }
+  /* shared */ }
   body #header {
     background: #003366;
     border-bottom: 2px solid #fcba19;
@@ -7168,8 +7168,13 @@ body {
       background-size: 100% 100%; }
   body .section_header ~ p {
     text-align: center; }
+  body iframe {
+    width: 100%;
+    height: 600px; }
   body #content_wrapper {
-    margin-top: 10rem; }
+    margin-top: 10rem;
+    /* bubble chart */
+    /* area chart */ }
     body #content_wrapper #expenditure_school {
       /*annotations*/
       /*schools*/ }
@@ -7278,3 +7283,12 @@ body {
         width: 150px;
         top: 1260px;
         left: 170px; }
+    body #content_wrapper #expenditure_breakdown #funding_source .domain {
+      display: none; }
+    body #content_wrapper #expenditure_breakdown #funding_source .tick line {
+      stroke-width: 1;
+      stroke: #ccc; }
+    body #content_wrapper #expenditure_breakdown #funding_source rect {
+      cursor: pointer; }
+    body #content_wrapper #expenditure_breakdown #funding_source .yAxisG .tick:first-of-type {
+      display: none; }

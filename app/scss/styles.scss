@@ -69,6 +69,7 @@ $home-color: #003663;
 
 body {
     font-family:  Myriad-Pro, Calibri, Arial, 'sans serif';
+    overflow-x: hidden;
 
     /*********student success**********/
   #header{ 
@@ -226,10 +227,15 @@ body {
     text-align: center;
   }
 
-/* bubble chart */
+  iframe {
+    width: 100%;
+    height: 600px;
+  }
+
 #content_wrapper {
 margin-top: 10rem;
 
+/* bubble chart */
 #expenditure_school {
 
     #expenditure_ses_bubble{
@@ -393,6 +399,28 @@ margin-top: 10rem;
             left: 170px;
         }
 
+    }
+
+/* area chart */
+#expenditure_breakdown{
+    #funding_source{
+        .domain{
+            display: none;
+        }
+        .tick line {
+            stroke-width: 1;
+            stroke: #ccc;
+        }
+        rect {
+            cursor: pointer;
+        }
+
+        .yAxisG {
+            .tick:first-of-type{
+                display: none;
+            }
+        }
+    }
     }
   }
 }

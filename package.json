@@ -2,9 +2,12 @@
   "name": "capital_viz",
   "version": "1.0.0",
   "description": "",
-  "main": "animation_script.js",
+  "main": "expenditure_ses_bubble.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "scripts": {
+    "deploy": "gh-pages -d app"
   },
   "repository": {
     "type": "git",
@@ -16,7 +19,10 @@
   "bugs": {
     "url": "https://github.com/yz-dd/capital_data_viz/issues"
   },
-  "homepage": "https://github.com/yz-dd/capital_data_viz#readme",
+  "homepage": "https://github.com/yz-dd/capital_data_viz",
+  "dependencies": {
+    "gh-pages": "^2.0.1"
+  },
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
@@ -24,6 +30,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "gh-pages": "^2.1.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0"
   }

@@ -50,7 +50,7 @@
                 <p>These 500+ schools are ranked from highest to lowest on the SES index ladder, according to their
                     average yearly SES index between 2015/16 and 2018/19.</p>
 
-                   <p>Circles are sized by total (province, school district, and third-party) spend on new facilities and renovations in that period.</p>
+                   <p>Circles are sized by total expenditures on projects such as new facilities and renovations in that period.</p>
             </div>
             <div class="col-sm-12 col-md-8 mx-auto">
                 <div id="expenditure_ses_bubble"></div>
@@ -116,15 +116,18 @@
 
     <div id="expenditure_breakdown">
             <div class="col-md-8 mx-auto viz_section">
-                <h3 class="section_header text-center"><span>School Capital Expenditure Breakdown</span></h3>
-                <p>These 500+ schools are ranked from highest to lowest on the SES index ladder, according to their
-                    average yearly SES index between 2015/16 and 2018/19.</p>
 
-                   <p>Circles are sized by total (province, school district, and third-party) spend on new facilities and renovations in that period.</p>
+                <h3 class="section_header text-center"><span>Funding Sources</span></h3>
+                <p>The majority of funding for schools is provided by the the province, there are also projects funded by school district and third-party fundings.</p>
+
             </div>
             <div class="col-sm-12 col-md-8 mx-auto">
-                <div id="expenditure_comp"></div>
-        </div>
+                <div id="funding_source"></div>
+                <div id="district_funding_source"></div>
+            </div>
+            <div class="col-sm-12 col-md-8 mx-auto">
+                <iframe src="r_school_map.html" frameborder="0" allowfullscreen></iframe>
+            </div>
     </div>
 
     <div id="footer-bar-thing">
@@ -183,6 +186,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
     <script src="d3_js/expenditure_ses_bubble.js"></script>
     <script src="d3_js/expenditure_comp.js"></script>
+    <script src="d3_js/district_funding_sources.js"></script>
 </body>
 
 </html>
