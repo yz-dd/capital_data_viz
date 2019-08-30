@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BC School Capital Expenditure Visual Analytics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="header">
+        <div class="restrain">
+            <div id="logo">
+                <a href="http://www2.gov.bc.ca/"><img src="./assets/img/gov3_bc_logo.png" alt="Government of B.C."
+                        title="Government of B.C."></a>
+            </div>
+
+            <div id="language-switcher">
+                <a class="en language-switcher active" href="https://studentsuccess.gov.bc.ca/lang/en">English</a>
+
+                <a onclick="javascript: alert('Ce site sera disponible en français prochainement.');"
+                    class="en language-switcher" href="#">Français</a>
+
+            </div>
+        </div>
+    </div><!-- /#header -->
+
+    <nav id="secondary-nav" class="contracted">
+        <div class="expand sub-menu-trigger restrain">Open <i class="fas fas-caret-down"></i></div>
+        <ul class="secondary-nav-container restrain white">
+            <li><a class="secondary-nav-link" href="/">Home</a></li>
+            <li><a class="secondary-nav-link" href="#about-this-website">About this Website</a></li>
+            <li><a class="secondary-nav-link" href="/all/school-districts">School Districts</a></li>
+            <li><a class="secondary-nav-link" href="/all/cities">Cities</a></li>
+            <li><a class="secondary-nav-link" href="#">Interactive Dashboard</a></li>
+            <li><a class="secondary-nav-link" href="/glossary">Glossary</a></li>
+            <li><a class="secondary-nav-link" href="#search">Search</a></li>
+        </ul>
+    </nav>
+
+    <div id="content_wrapper">
+        <div id="expenditure_school">
+            <div class="col-md-8 mx-auto viz_section">
+                <h3 class="section_header text-center"><span>School Capital Expenditure vs. SES Index</span></h3>
+                <p>These 500+ schools are ranked from highest to lowest on the SES index ladder, according to their
+                    average yearly SES index between 2015/16 and 2018/19.</p>
+
+                   <p>Circles are sized by total expenditures on projects such as new facilities and renovations in that period.</p>
+            </div>
+            <div class="col-sm-12 col-md-8 mx-auto">
+                <div id="expenditure_ses_bubble"></div>
+                <div class="annos">
+                        <div class="bubble-anno q_m_elementry"> <span class="school_header indie">Queen Mary Elementary, <span
+                            class="state-bold">SD39</span></span><br><br><span class="school_info">
+                        <strong>SES Index</strong> +1.83<br><strong>Cap. exp.</strong> $20.5m<br><strong>Cap. exp.
+                            prov.</strong> $20.3m<br><strong>Per.stu.1yr.</strong> $14,423</span></div>
+                        
+                        <div class="bubble-anno g_w_elementry"> <span class="school_header indie">General Wolfe Elementary, <span
+                            class="state-bold">SD39</span></span><br><br><span class="school_info">
+                        <strong>SES Index</strong> +1.28<br><strong>Cap. exp.</strong> $16.8m<br><strong>Cap. exp.
+                            prov.</strong> $16.8m<br><strong>Per.stu.1yr.</strong> $10,574</span></div>
+                        
+                        <div class="bubble-anno ct_elementry"> <span class="school_header indie">Crosstown Elementary, <span
+                            class="state-bold">SD39</span></span><br><br><span class="school_info">
+                        <strong>SES Index</strong> +1.30<br><strong>Cap. exp.</strong> $18.9m<br><strong>Cap. exp.
+                            prov.</strong> $15.4m<br><strong>Per.stu.1yr.</strong> $34,236</span></div>
+                       
+                        <div class="bubble-anno j_w_elementry"> <span class="school_header indie">J.W. Sexsmith Community Elementary, <span
+                            class="state-bold">SD39</span></span><br><br><span class="school_info">
+                        <strong>SES Index</strong> +0.39<br><strong>Cap. exp.</strong> $15.8m<br><strong>Cap. exp.
+                            prov.</strong> $15.8m<br><strong>Per.stu.1yr.</strong> $10,761</span></div>
+                        
+                        <div class="bubble-anno s_j_elementry"> <span class="school_header indie">Sir James Douglas Elementary, <span
+                            class="state-bold">SD39</span></span><br><br><span class="school_info">
+                        <strong>SES Index</strong> +0.04<br><strong>Cap. exp.</strong> $17.6m<br><strong>Cap. exp.
+                            prov.</strong> $17.6m<br><strong>Per.stu.1yr.</strong> $8,974</span></div>
+                        
+                        <div class="bubble-anno ol_elementry"> <span class="school_header indie">Oaklands Elementary, <span
+                            class="state-bold">SD61</span></span><br><br><span class="school_info">
+                        <strong>SES Index</strong> +0.28<br><strong>Cap. exp.</strong> $53.8m<br><strong>Cap. exp.
+                            prov.</strong> $51.5m<br><strong>Per.stu.1yr.</strong> $29,794</span></div>
+                        
+                        <div class="bubble-anno p_r_middle"> <span class="school_header indie">Pitt River Middle School, <span
+                            class="state-bold">SD43</span></span><br><br><span class="school_info">
+                        <strong>SES Index</strong> -0.05<br><strong>Cap. exp.</strong> $20.1m<br><strong>Cap. exp.
+                            prov.</strong> $20.1m<br><strong>Per.stu.1yr.</strong> $11,345</span></div>
+                        
+                        <div class="bubble-anno r_b_secondary"> <span class="school_header indie">Royal Bay Secondary, <span
+                            class="state-bold">SD62</span></span><br><br><span class="school_info">
+                        <strong>SES Index</strong> -0.07<br><strong>Cap. exp.</strong> $41.2m<br><strong>Cap. exp.
+                            prov.</strong> $41.2m<br><strong>Per.stu.1yr.</strong> $10,262</span></div>
+                        
+                        <div class="bubble-anno g_t_naay"> <span class="school_header indie">Gudangaay Tlaats'gaa Naay, <span
+                            class="state-bold">SD50</span></span><br><br><span class="school_info">
+                        <strong>SES Index</strong> -1.06<br><strong>Cap. exp.</strong> $3.8m<br><strong>Cap. exp.
+                            prov.</strong> $138.1k<br><strong>Per.stu.1yr.</strong> $9,302</span></div>
+                        
+                        <div class="bubble-anno hd_elementry"> <span class="school_header indie">Henderson Elementary, <span
+                            class="state-bold">SD47</span></span><br><br><span class="school_info">
+                        <strong>SES Index</strong> -1.04<br><strong>Cap. exp.</strong> $3.8m<br><strong>Cap. exp.
+                            prov.</strong> $0.14m<br><strong>Per.stu.1yr.</strong> $9,302</span></div>
+                        
+                        <div class="bubble-anno sw_elementry"> <span class="school_header indie">Shearwater Elementary, <span
+                            class="state-bold">SD49</span></span><br><br><span class="school_info">
+                        <strong>SES Index</strong> -1.27<br><strong>Cap. exp.</strong> $0.85m<br><strong>Cap. exp.
+                            prov.</strong> $0.38m<br><strong>Per.stu.1yr.</strong> $20,377</span></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="expenditure_breakdown">
+            <div class="col-md-8 mx-auto viz_section">
+
+                <h3 class="section_header text-center"><span>Funding Sources</span></h3>
+                <p>The majority of funding for schools is provided by the the province, there are also projects funded by school district and third-party fundings.</p>
+
+            </div>
+            <div class="col-sm-12 col-md-8 mx-auto">
+                <div id="funding_source"></div>
+                <div id="district_funding_source"></div>
+            </div>
+            <div class="col-sm-12 col-md-8 mx-auto">
+                <iframe src="r_school_map.html" frameborder="0" allowfullscreen></iframe>
+            </div>
+    </div>
+
+    <div id="footer-bar-thing">
+        <div class="restrain">
+
+            <div class="some-links">
+
+                <a class="some-link" title="Share this page on Facebook" target="_blank"
+                    href="https://www.facebook.com/sharer/sharer.php?u=http%3A//studentsuccess.gov.bc.ca//"><i
+                        class="fab fa-facebook" aria-hidden="true"></i></a>
+
+                <a class="some-link" title="Share this page on Twitter" target="_blank"
+                    href="https://twitter.com/home?status=http%3A//studentsuccess.gov.bc.ca//%20Check%20out%20this%20page%20on%20the%20B.C.%20Education%20Performance%20Website%20%23bced"><i
+                        class="fab fa-twitter" aria-hidden="true"></i></a>
+
+                <a class="some-link" title="Share this page on Pintrest" target="_blank"
+                    href="https://pinterest.com/pin/create/button/?url=http%3A//studentsuccess.gov.bc.ca//&media=http%3A//studentsuccess.gov.bc.ca/img/happy_people.png&description=Check%20out%20the%20great%20work%20being%20done%20by%20%23bced"><i
+                        class="fab fa-pinterest" aria-hidden="true"></i></a>
+
+                <a class="some-link" title="Share this page via email"
+                    href="mailto:?body=https://studentsuccess.gov.bc.ca&subject=Check out this page on the B.C. Education Performance Website"><i
+                        class="fa fa-envelope" aria-hidden="true"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="restrain">
+
+            <nav>
+                <ul>
+                    <li><a href="http://www2.gov.bc.ca/gov/content/home">Home</a></li>
+                    <li><a href="http://www2.gov.bc.ca/gov/content/about-gov-bc-ca">About gov.bc.ca</a></li>
+                    <li><a href="http://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a></li>
+                    <li><a href="http://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a></li>
+                    <li><a href="http://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a></li>
+                    <li><a href="http://www2.gov.bc.ca/gov/content/home/copyright">Copyright</a></li>
+                    <li><a href="http://www2.gov.bc.ca/gov/content/home/contact-us">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <p class="white" style="padding: 20px 0;">This website uses Google Analytics to track visitor traffic. <a
+                    style="text-decoration: underline;" href="http://www.google.com/policies/privacy/partners/">Learn
+                    how Google
+                    uses data</a> when you use our partner&#039;s sites or apps.<br>For more information, please contact
+                <a style="text-decoration: underline;"
+                    href="mailto:educ.systemperformance@gov.bc.ca">educ.systemperformance@gov.bc.ca</a>.</p>
+
+        </div>
+    </footer><!-- /#footer -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+    <script src="d3_js/expenditure_ses_bubble.js"></script>
+    <script src="d3_js/expenditure_comp.js"></script>
+    <script src="d3_js/district_funding_sources.js"></script>
+</body>
+
+</html>

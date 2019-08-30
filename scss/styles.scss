@@ -1,0 +1,426 @@
+//varible overrides
+$home-color: #003663;
+
+//Bootstrap sass files
+@import"node_modules/bootstrap/scss/bootstrap";
+
+/* student success */
+@media only screen and (min-width: 320px){
+.restrain {
+    max-width: 320px;
+  }
+  #secondary-nav {
+    top: 70px;
+  }
+
+  .secondary-nav-container>li:first-of-type {
+    margin-top: 10px;
+}
+
+  .secondary-nav-container>li {
+    margin-bottom: 10px;
+    display: block;
+  }
+
+}
+
+@media only screen and (min-width: 605px){
+  .restrain {
+      max-width: 600px;
+  }
+      #logo {
+        padding-left: 0;
+      }
+      #language-switcher {
+        float: right;
+      }
+
+      #secondary-nav {
+        top: 70px;
+        height: initial;
+
+        .secondary-nav-container>li:first-of-type {
+          margin-left: 0;
+          padding-left: 0;
+        }
+      }
+    
+  }
+
+@media only screen and (min-width: 1030px){
+    .restrain {
+        max-width: 1030px;
+      }
+
+    #secondary-nav{
+      height: 38px !important;
+     .sub-menu-trigger {
+        display: none;
+    }
+      .secondary-nav-container>li {
+        display: inline-block;
+        margin: 10px 5px;
+        padding-left: 5px;
+        padding-right: 10px;
+        border-right: 1px solid rgba(255,255,255,0.5);
+    }
+  }
+}
+
+body {
+    font-family:  Myriad-Pro, Calibri, Arial, 'sans serif';
+    overflow-x: hidden;
+
+    /*********student success**********/
+  #header{ 
+    background: #003366;
+    border-bottom: 2px solid #fcba19;
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    z-index: 99;
+    top: 0;
+
+      #logo{
+        float: left;
+        padding-left: 5px;
+        img{
+          max-width: 100%;
+          vertical-align: middle;
+        }
+    }
+
+    #language-switcher {
+      padding-top: 1rem;
+      margin-right: 5px;
+      text-align: right;
+
+      a{
+        color: white;
+      }
+
+      a.active{
+        font-weight:bold;
+      }
+    }
+  }
+
+  .restrain{
+    margin: auto;
+    display: block;
+    clear: both;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .contracted {
+    height: 35px !important;
+  }
+  
+  .expand {
+      margin-top: 10px;
+  }
+
+#secondary-nav {
+  position: fixed;
+  top: 70px;
+  display: block;
+  background-color: #38598a;
+  width: 100%;
+  box-shadow: 0px 3px 3px 1px rgba(51,51,51,0.5);
+  z-index: 99;
+  overflow: hidden;
+  height: 270px;
+  -webkit-transition: all 0.125s linear;
+  -moz-transition: all 0.125s linear;
+  -ms-transition: all 0.125s linear;
+  -o-transition: all 0.125s linear;
+  transition: all 0.125s linear;
+
+    .sub-menu-trigger {
+      color: white;
+      padding-left: 5px;
+      cursor: pointer;
+
+      .fa {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+      }
+   }
+
+   .secondary-nav-container{
+     font-size: 13px;
+     .secondary-nav-link:hover {
+      text-decoration: underline;
+  }
+     a{
+    color: white !important;
+     }
+   }
+      
+}
+
+#footer-bar-thing {
+  background: #4b91cd;
+  height: 70px;
+
+    .some-links {
+      position: relative;
+      font-size: 250%;
+      .some-link {
+        padding-right: 10px;
+        color: #036;
+        text-decoration: none;
+    }
+  }
+}
+
+#footer {
+  background: #003366;
+  border-top: 2px solid #fcba19;
+  min-height: 179px;
+
+  a,
+  a:hover, p {
+    text-decoration: none;
+    color: white;
+  }
+
+    nav ul {
+      color: #fff;
+      padding: 0;
+      padding-top: 20px;
+    
+      li:last-of-type {
+        border-right: 0;
+    }
+    
+    li {
+        list-style: none;
+        padding: 1px 5px;
+        display: inline-block;
+        border-right: 1px solid rgba(255,255,255,0.3);
+    }
+  }
+
+}
+
+/********student success*********/
+
+/* shared */
+.section_header{
+    background-size:100% 100%;
+    margin-bottom: 3rem;
+  
+    span{
+    color: $home-color;
+    background-image: linear-gradient(-180deg,transparent 65%, #2cc7c0,#59d99d 0);
+    background-repeat: no-repeat;
+    text-decoration: none;
+    background-size: 100% 100%;
+    }
+  }
+
+  .section_header ~ p {
+    text-align: center;
+  }
+
+  iframe {
+    width: 100%;
+    height: 600px;
+  }
+
+#content_wrapper {
+margin-top: 10rem;
+
+/* bubble chart */
+#expenditure_school {
+
+    #expenditure_ses_bubble{
+
+        .bubble {
+            stroke-width: 1px;
+            stroke: white;
+            fill-opacity: 0.9;
+        }
+
+        .yAxisG, .xAxisG {
+            font-size: 14px;
+            color: #494949;
+        }
+
+        .yAxisG line{
+            stroke: rgb(230, 230, 230);
+        }
+
+        .xAxisG line{
+            stroke: none;
+        }
+
+        #center_line line {
+            stroke: #ccc;
+            stroke-width: 2;
+            stroke-dasharray: 10;
+            }
+
+            .legendCells circle {
+                fill: none;
+                stroke: #ccc;
+            stroke-width: 2;
+            stroke-dasharray: 4;
+            }
+        
+        }
+        
+        /*annotations*/
+        .annos {
+            margin-left: 0px;
+            display: block;
+        }
+
+        .bubble-anno {
+            display: block;
+            margin-left: 0px;
+            position: absolute;
+            font-size: 12px;
+            line-height: 1.2;
+            font-weight: 400;
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid $home-color;
+            background-color: rgba(249, 249, 249, 0.85);
+            color: #333;
+            z-index: 5;
+        }
+
+        .school_header {
+            font-size: 14;
+            color: $home-color;
+            font-weight: bold;
+        }
+        
+        .school_info {
+            strong {
+                font-family: serif;
+            }
+        }
+
+        .bubbleStoryText {
+            display: block;
+            position: absolute;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #333;
+            padding: 13px;
+            background-color: rgba(249, 249, 249, 0.90);
+            border-radius: 3px;
+            /* left: -85px; */
+            box-shadow: 0 0 10px 20px rgba(249, 249, 249, 0.9);
+        }
+
+        .anno-inset-img {
+            width: 100%;
+            margin: 9px 0px 0px 0px;
+        }
+
+        /*schools*/
+        .q_m_elementry {
+            width: 150px;
+            top: 77px;
+            left: 210px;
+        }
+
+        .g_w_elementry {
+            width: 150px;
+            top: 220px;
+            left: 480px;
+        }
+
+        .ct_elementry {
+            width: 150px;
+            top: 280px;
+            left: 170px;
+        }
+
+        .j_w_elementry {
+            width: 150px;
+            top: 560px;
+            left: 210px;
+        }
+
+        .s_j_elementry {
+            width: 150px;
+            top: 620px;
+            left: 510px;
+        }
+
+        .ol_elementry {
+            width: 150px;
+            top: 690px;
+            left: 160px;
+        }
+
+        .s_j_elementry {
+            width: 150px;
+            top: 620px;
+            left: 510px;
+        }
+
+        .p_r_middle {
+            width: 150px;
+            top: 810px;
+            left: 180px;
+        }
+
+        .r_b_secondary {
+            width: 150px;
+            top: 860px;
+            left: 490px;
+        }
+
+        .g_t_naay {
+            width: 150px;
+            top: 1090px;
+            left: 500px;
+        }
+
+        .hd_elementry {
+            width: 150px;
+            top: 1120px;
+            left: 190px;
+        }
+
+        .sw_elementry {
+            width: 150px;
+            top: 1260px;
+            left: 170px;
+        }
+
+    }
+
+/* area chart */
+#expenditure_breakdown{
+    #funding_source{
+        .domain{
+            display: none;
+        }
+        .tick line {
+            stroke-width: 1;
+            stroke: #ccc;
+        }
+        rect {
+            cursor: pointer;
+        }
+
+        .yAxisG {
+            .tick:first-of-type{
+                display: none;
+            }
+        }
+    }
+    }
+  }
+}
