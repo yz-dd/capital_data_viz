@@ -27,7 +27,7 @@ gulp.task('serve', gulp.series('sass', function() {
     
     browserSync.init({
         server: "./app", 
-        index: "capital_viz.html"
+        index: "index.html"
  
     });
 
